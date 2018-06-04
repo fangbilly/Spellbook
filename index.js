@@ -1,3 +1,4 @@
+console.log('testing')
 const button = document.querySelector('button')
 
 const changeContents = function() {
@@ -7,5 +8,12 @@ const changeContents = function() {
 }
 
 button.addEventListener('click', changeContents)
-console.log('testing')
-//make sure it works when you press enter
+
+const form = document.querySelector('form')
+
+const formChangeHeading = function() {
+    const headinga = document.querySelector('#heading_1')
+    headinga.textContent = form.elements['newheading'].value
+    console.log('heading changed')
+  }
+ 

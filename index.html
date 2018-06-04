@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +12,17 @@
     <h1 id = "heading_2">Spellbook</h1>
     <h1 id = "heading_3">Spellbook</h1>
     <button>Change Heading</button>    
+    
+    <form onsubmit="formChangeHeading()" target="_present">
+            <br>
+            Enter a new heading:
+            <br>
+            <input type="text" name="newheading">            
+            <input type="submit" value="Submit" >
+    </form> 
+
+
+
     <script src = "index.js"> </script>
 </body>
 </html>
