@@ -16,7 +16,7 @@ const formChangeHeading = function(ev) {
 
    // var text= "#"+ form.elements['heading1'].value
     const headinga = document.querySelector("#spells")
-    headinga.innerHTML += "<p>" + form.elements['newheading'].value+"</p>"
+    headinga.innerHTML += `<p>${form.elements['newheading'].value}</p>`
     form.elements['newheading'].value="" //reset() will go to default value
     console.log('heading changed')
   }
