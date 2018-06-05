@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Homemade+Apple|UnifrakturCook:700');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 
 body {
   background: url(wood.jpg);
@@ -131,4 +132,9 @@ ul#spells {
 .details {
   font-size: 0.7em;
   margin-top: -1rem;
+}
+
+span.Gesture{
+    font-family: 'Indie Flower', cursive;
+    color: aqua
 }

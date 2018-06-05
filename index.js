@@ -8,7 +8,6 @@ const changeHeading = function(ev) {
   const gesture = document.createTextNode(f.gesture.value)
   const spellsDiv = document.querySelector('#spells')
   let a = buildListFromSpan(spellName,gesture)
-
    spellsDiv.appendChild(a)
 
   f.reset()
