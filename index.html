@@ -13,14 +13,20 @@
     <h1 id = "heading_3">Spellbook</h1>
     <button>Change Heading</button>    
     
-    <form action ="#" onsubmit="formChangeHeading();return false">
+    <form>  //action ="#" onsubmit="formChangeHeading();return false">
             <br>
             Enter a new heading:
             <br>
-            <input type="text" name="newheading">            
+            <input type="text" name="newheading"><br>
+            <input type="radio" name="heading1" value="heading_1">heading1 <br>
+            <input type="radio" name="heading2" value="heading_2" >heading2 <br>
+            <input type="radio" name="heading3" value="heading_3" >heading3 <br>
             <input type="submit" value="Submit" >
     </form> 
 
+    <div id="spells">
+                
+    </div>
 
     <script src = "index.js"> </script>
 </body>

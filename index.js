@@ -11,10 +11,15 @@ button.addEventListener('click', changeContents)
 
 const form = document.querySelector('form')
 
-const formChangeHeading = function() {
-    const headinga = document.querySelector('#heading_1')
-    headinga.textContent = form.elements['newheading'].value
-    form.elements['newheading'].value=""
+const formChangeHeading = function(ev) {
+   
+
+   // var text= "#"+ form.elements['heading1'].value
+    const headinga = document.querySelector("#spells")
+    headinga.textContent += " " + form.elements['newheading'].value
+    form.elements['newheading'].value="" //reset() will go to default value
     console.log('heading changed')
   }
+
+form.addEventListener("submit", formChangeHeading)
  
