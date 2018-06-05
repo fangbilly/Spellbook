@@ -14,6 +14,7 @@ const form = document.querySelector('form')
 const formChangeHeading = function() {
     const headinga = document.querySelector('#heading_1')
     headinga.textContent = form.elements['newheading'].value
+    form.elements['newheading'].value=""
     console.log('heading changed')
   }
  
