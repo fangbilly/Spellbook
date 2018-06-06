@@ -49,11 +49,18 @@ const app = {
 
     const list = document.querySelector('#spells')
     list.appendChild(item)
+    list.appendChild(this.deletSpell(item))
 
     f.reset()
   },
 
   spellBook:[],
+
+  deletSpell: function(item){
+    const btn = document.createElement("BUTTON")
+    btn.textContent = "Delet Spell"
+    return btn
+  },
 
 }
 
