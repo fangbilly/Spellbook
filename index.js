@@ -39,7 +39,6 @@ const app = {
 
   handleSubmit: function(ev) {
     ev.preventDefault()
-
     const f = ev.target
 
     const spell = {
@@ -49,53 +48,63 @@ const app = {
 
     const item = this.renderItem(spell)
 
+    let fullSpell = this.organizeNote(this.spellNote)
+
     const list = document.querySelector('#spells')
     list.appendChild(item)
     item.id = 'deleteButton'+ this.buttonCount
-    list.appendChild(this.addButton(item))
+    list.appendChild(this.addButton(item,fullSpell))
   
-    let fullSpell = `Spell Name: ${this.spellNote[0]}, Level: ${this.spellNote[1]}`
-    this.spellBook.push(fullSpell)
-
-
     f.reset()
     f.spellName.focus()
     
+
     const deleteButton = document.getElementsByClassName("deleteButton")
-    Array.from(deleteButton).forEach(element => {
-      element.addEventListener('click', this.deleteSpell)
-     });
-
-
-
-
-  },
+     Array.from(deleteButton).forEach(element => {
+          element.addEventListener('click', ev => {
+            this.deleteSpell(ev)}
+          )})
+  
+   },
 
   spellBook:[],
 
   spellNote:[],
 
-  addButton: function(item){
+  addButton: function(item,fullSpell){
     const btn = document.createElement("BUTTON")
     btn.textContent = "Delete Spell"
     btn.classList.add('deleteButton')
     btn.id = 'deleteButton'+ this.buttonCount
+    btn.name = fullSpell
     this.buttonCount++
     return btn
   },
 
-  deleteSpell: function(buttonID){
-    console.log('de')
-    // const deleteList = document.getElementById(buttonID)
-    // Array.from(deleteList).forEach(element => {
-    //   const list = document.querySelector('#spells')
-    //   console.log('lete')
+  deleteSpell: function(ev){
+    const buttonToDelete = ev.target
+    const buttonID = ev.target.id
+    const listToDelete = document.getElementById(buttonID)    
+    const list = document.querySelector('#spells')
 
-    //   list.removeChild(element)
-    // })
+    debugger
+
+    list.removeChild(listToDelete)
+    list.removeChild(buttonToDelete)
+
+    let k = this.spellBook.indexOf(buttonToDelete)
+    this.spellBook.splice(k-1,1)
+    
   },
 
   buttonCount:1,
+
+  organizeNote: function(spellNote){
+    let fullSpell = `Spell Name: ${this.spellNote[0]}, Level: ${this.spellNote[1]}`
+    this.spellBook.push(fullSpell)
+    this.spellNote=[]
+    return fullSpell
+  },
 
 }
 
