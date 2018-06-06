@@ -1,33 +1,56 @@
-const form = document.querySelector('form')
+const app = {
+  init: function() {
+    const form = document.querySelector('form')
+    form.addEventListener('submit', ev => {
+      this.handleSubmit(ev)
+    })
+  },
 
-const changeHeading = function(ev) {
-  ev.preventDefault()
+  renderProperty: function(name, value) {
+    const el = document.createElement('span')
+    el.textContent = value
+    el.classList.add(name)
+    return el
+  },
 
-  const f = ev.target
-  const spellName = document.createTextNode(f.spellName.value)
-  const gesture = document.createTextNode(f.gesture.value)
-  const spellsDiv = document.querySelector('#spells')
-  let a = buildListFromSpan(spellName,gesture)
-   spellsDiv.appendChild(a)
+  renderItem: function(spell) {
+    // ['name', 'level']
+    properties = Object.keys(spell)
 
-  f.reset()
+    // collect an array of renderProperty's return values
+    // (an array of <span> elements)
+    const childElements = properties.map(property => {
+      return this.renderProperty(property, spell[property])
+    })
+
+    const item = document.createElement('li')
+    item.classList.add('spell')
+
+    // append each <span> to the <li>
+    childElements.forEach(el => {
+      item.appendChild(el)
+    })
+
+    return item
+  },
+
+  handleSubmit: function(ev) {
+    ev.preventDefault()
+
+    const f = ev.target
+
+    const spell = {
+      name: f.spellName.value,
+      level: f.level.value,
+    }
+
+    const item = this.renderItem(spell)
+
+    const list = document.querySelector('#spells')
+    list.appendChild(item)
+
+    f.reset()
+  },
 }
 
-function buildListFromSpan(spellName,gesture){
-  const spanspell = document.createElement("span")
-  const spangesture = document.createElement("span")
-  spanspell.setAttribute("class", "SpellName")
-  spangesture.setAttribute("class", "Gesture")
-  spanspell.appendChild(spellName)
-  spangesture.appendChild(gesture)  
-  return buildList(spanspell,spangesture)
-}
-
-function buildList(spanspell,spangesture){
-  const listitem = document.createElement("li")
-  listitem.appendChild(spanspell)
-  listitem.appendChild(spangesture)
-  return listitem
-}
-
-form.addEventListener('submit', changeHeading)
+app.init()
