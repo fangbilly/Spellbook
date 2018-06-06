@@ -10,6 +10,7 @@ const app = {
     const el = document.createElement('span')
     el.textContent = value
     el.classList.add(name)
+    this.spellBook.push(value)
     return el
   },
 
@@ -51,6 +52,9 @@ const app = {
 
     f.reset()
   },
+
+  spellBook:[],
+
 }
 
 app.init()
