@@ -11,7 +11,7 @@ const app = {
     const el = document.createElement('span')
     el.textContent = value
     el.classList.add(name)
-    this.spellBook.push(value)
+    this.spellNote.push(value)
     return el
   },
 
@@ -51,12 +51,17 @@ const app = {
     const list = document.querySelector('#spells')
     list.appendChild(item)
     list.appendChild(this.addButton(item))
+  
+    let fullSpell = `Spell Name: ${this.spellNote[0]}, Level: ${this.spellNote[1]}`
+
+    this.spellBook.push(fullSpell)
+
 
     f.reset()
 
     const deleteButton = document.getElementsByClassName("deleteButton");
     Array.from(deleteButton).forEach(element => {
-      element.addEventListener('click', this.deleteSpell);
+      element.addEventListener('click', this.deleteSpell(element.id));
     });
     
 
@@ -67,6 +72,8 @@ const app = {
 
   spellBook:[],
 
+  spellNote:[],
+
   addButton: function(item){
     const btn = document.createElement("BUTTON")
     btn.textContent = "Delete Spell"
@@ -76,8 +83,8 @@ const app = {
     return btn
   },
 
-  deleteSpell: function(ev){
-    console.log('de')
+  deleteSpell: function(buttonID){
+    
   },
 
   buttonCount:1,
