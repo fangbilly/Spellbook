@@ -4,6 +4,7 @@ const app = {
     form.addEventListener('submit', ev => {
       this.handleSubmit(ev)
     })
+    
   },
 
   renderProperty: function(name, value) {
@@ -49,18 +50,37 @@ const app = {
 
     const list = document.querySelector('#spells')
     list.appendChild(item)
-    list.appendChild(this.deletSpell(item))
+    list.appendChild(this.addButton(item))
 
     f.reset()
+
+    const deleteButton = document.getElementsByClassName("deleteButton");
+    Array.from(deleteButton).forEach(element => {
+      element.addEventListener('click', this.deleteSpell);
+    });
+    
+
+
+
+
   },
 
   spellBook:[],
 
-  deletSpell: function(item){
+  addButton: function(item){
     const btn = document.createElement("BUTTON")
-    btn.textContent = "Delet Spell"
+    btn.textContent = "Delete Spell"
+    btn.classList.add('deleteButton')
+    btn.id = 'deleteButton'+ this.buttonCount
+    this.buttonCount++
     return btn
   },
+
+  deleteSpell: function(ev){
+    console.log('de')
+  },
+
+  buttonCount:1,
 
 }
 
