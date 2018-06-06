@@ -4,6 +4,7 @@ const app = {
     form.addEventListener('submit', ev => {
       this.handleSubmit(ev)
     })
+
     
   },
 
@@ -50,20 +51,20 @@ const app = {
 
     const list = document.querySelector('#spells')
     list.appendChild(item)
+    item.id = 'deleteButton'+ this.buttonCount
     list.appendChild(this.addButton(item))
   
     let fullSpell = `Spell Name: ${this.spellNote[0]}, Level: ${this.spellNote[1]}`
-
     this.spellBook.push(fullSpell)
 
 
     f.reset()
-
-    const deleteButton = document.getElementsByClassName("deleteButton");
-    Array.from(deleteButton).forEach(element => {
-      element.addEventListener('click', this.deleteSpell(element.id));
-    });
+    f.spellName.focus()
     
+    const deleteButton = document.getElementsByClassName("deleteButton")
+    Array.from(deleteButton).forEach(element => {
+      element.addEventListener('click', this.deleteSpell)
+     });
 
 
 
@@ -84,7 +85,14 @@ const app = {
   },
 
   deleteSpell: function(buttonID){
-    
+    console.log('de')
+    // const deleteList = document.getElementById(buttonID)
+    // Array.from(deleteList).forEach(element => {
+    //   const list = document.querySelector('#spells')
+    //   console.log('lete')
+
+    //   list.removeChild(element)
+    // })
   },
 
   buttonCount:1,
