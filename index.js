@@ -59,11 +59,11 @@ const app = {
     f.spellName.focus()
     
 
-    const deleteButton = document.getElementsByClassName("deleteButton")
-     Array.from(deleteButton).forEach(element => {
-          element.addEventListener('click', ev => {
-            this.deleteSpell(ev)}
-          )})
+    // const deleteButton = document.getElementsByClassName("deleteButton")
+    //  Array.from(deleteButton).forEach(element => {
+    //       element.addEventListener('click', ev => {
+    //         this.deleteSpell(ev)}
+    //       )})
   
    },
 
@@ -78,6 +78,7 @@ const app = {
     btn.id = 'deleteButton'+ this.buttonCount
     btn.name = fullSpell
     this.buttonCount++
+    btn.addEventListener('click', ev => { this.deleteSpell(ev)})
     return btn
   },
 
@@ -88,9 +89,9 @@ const app = {
     const list = document.querySelector('#spells')
 
     debugger
-
-    list.removeChild(listToDelete)
     list.removeChild(buttonToDelete)
+    list.removeChild(listToDelete)
+    
 
     let k = this.spellBook.indexOf(buttonToDelete)
     this.spellBook.splice(k-1,1)
