@@ -57,14 +57,7 @@ const app = {
   
     f.reset()
     f.spellName.focus()
-    
-
-    // const deleteButton = document.getElementsByClassName("deleteButton")
-    //  Array.from(deleteButton).forEach(element => {
-    //       element.addEventListener('click', ev => {
-    //         this.deleteSpell(ev)}
-    //       )})
-  
+      
    },
 
   spellBook:[],
@@ -87,12 +80,8 @@ const app = {
     const buttonID = ev.target.id
     const listToDelete = document.getElementById(buttonID)    
     const list = document.querySelector('#spells')
-
-    debugger
     list.removeChild(buttonToDelete)
     list.removeChild(listToDelete)
-    
-
     let k = this.spellBook.indexOf(buttonToDelete)
     this.spellBook.splice(k-1,1)
     
