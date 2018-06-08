@@ -158,18 +158,21 @@ input.small {
 }
 
 button.delete {
-  background-color: #ff3333;
-  color: white;
+  background-color: transparent;
+  color: red;
+  border-color: transparent;
 }
 
 button.fav {
-  background-color: #F8BE3D;
-  color: black;
+  background-color: transparent;
+  color: rgb(255, 182, 25);
+  border-color: transparent;
 }
 
 button.move {
-  background-color: #3366ff;
-  color: white;
+  background-color:transparent;
+  color: rgb(60, 10, 240);
+  border-color: transparent;
 }
 
 .spell.fav {
