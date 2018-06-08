@@ -8,6 +8,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  cursor:url(finger.png), auto;
 }
 
 img#skull {
@@ -81,6 +82,7 @@ input[type="number"]:focus {
   text-align: center;
   display: flex;
   flex: 0 0 auto;
+  
 }
 
 button[type="submit"] {
@@ -102,7 +104,7 @@ button[type="submit"] {
   font-size: .9rem;
   line-height: 1;
   text-align: center;
-  cursor: pointer;
+  cursor:url(finger.png), auto;
 }
 
 button[type="submit"]:hover {
@@ -161,18 +163,22 @@ button.delete {
   background-color: transparent;
   color: red;
   border-color: transparent;
+  cursor:url(finger.png), auto;
+  
 }
 
 button.fav {
   background-color: transparent;
   color: rgb(255, 182, 25);
   border-color: transparent;
+  cursor:url(finger.png), auto;
 }
 
 button.move {
   background-color:transparent;
   color: rgb(60, 10, 240);
   border-color: transparent;
+  cursor:url(finger.png), auto;
 }
 
 .spell.fav {
